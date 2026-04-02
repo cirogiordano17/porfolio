@@ -58,7 +58,7 @@ export function Contact() {
             </motion.a>
 
             <motion.a
-              href="tel:+123456789"
+              href="tel:+543513252802"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.3, duration: 0.5 }}
@@ -69,7 +69,7 @@ export function Contact() {
                 <Phone className="w-7 h-7 text-blue-400" />
               </div>
               <h3 className="text-white font-semibold mb-2">Teléfono</h3>
-              <p className="text-slate-400 text-sm">+54 (9) 351 325 2802</p>
+              <p className="text-slate-400 text-sm select-text cursor-text">+54 (9) 351 325 2802</p>
             </motion.a>
           </div>
         </motion.div>
