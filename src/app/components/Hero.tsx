@@ -46,7 +46,7 @@ export function Hero() {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="text-xl md:text-2xl text-blue-400 mb-6"
           >
-            Estudiante avanzado de Ingeniería en Sistemas
+            Estudiante de Ingeniería en Sistemas
           </motion.p>
 
         
