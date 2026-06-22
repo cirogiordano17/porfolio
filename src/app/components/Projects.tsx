@@ -13,6 +13,16 @@ const techStack = [
   { name: 'Docker', color: 'bg-blue-400' },
 ];
 
+const tpdaoStack = [
+  { name: 'Python 3.13', color: 'bg-blue-500' },
+  { name: 'Tkinter', color: 'bg-gray-500' },
+  { name: 'MySQL', color: 'bg-orange-500' },
+  { name: 'Docker', color: 'bg-blue-400' },
+  { name: 'pytest', color: 'bg-green-500' },
+  { name: 'ReportLab', color: 'bg-red-500' },
+  { name: 'Matplotlib', color: 'bg-purple-500' },
+];
+
 export function Projects() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
@@ -147,10 +157,17 @@ export function Projects() {
               </p>
 
               <div className="flex flex-wrap gap-2 mb-4">
-                {['Python 3.13', 'Tkinter', 'MySQL', 'Docker', 'pytest', 'ReportLab', 'Matplotlib'].map((tech) => (
-                  <span key={tech} className="px-2 py-1 rounded-md bg-slate-700 text-slate-300 text-xs font-medium">
-                    {tech}
-                  </span>
+                {tpdaoStack.map((tech, index) => (
+                  <motion.span
+                    key={tech.name}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                    transition={{ delay: 0.5 + index * 0.05, duration: 0.3 }}
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    className={`px-4 py-2 rounded-lg ${tech.color} bg-opacity-20 text-white text-sm font-medium border border-current border-opacity-30 cursor-default transition-all duration-200`}
+                  >
+                    {tech.name}
+                  </motion.span>
                 ))}
               </div>
 
