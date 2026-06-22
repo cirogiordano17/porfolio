@@ -115,29 +115,75 @@ export function Projects() {
             </div>
           </motion.div>
 
-          {/* Proyectos Futuros - Placeholders */}
+          {/* Proyectos Secundarios */}
           <div className="grid md:grid-cols-2 gap-6">
-            {[1, 2].map((index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ delay: 0.4 + index * 0.1, duration: 0.6 }}
-                className="bg-slate-800/30 rounded-xl p-6 border border-slate-700/50 border-dashed"
+            {/* Proyecto Hospital */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-6 border border-slate-700 hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <Code2 className="w-5 h-5 text-blue-400" />
+                <h3 className="text-lg font-semibold text-white">
+                  Turnero Hospitalario
+                </h3>
+              </div>
+              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 mb-3">
+                Académico
+              </span>
+
+              <div className="mb-4 overflow-hidden rounded-lg border border-slate-700">
+                <img
+                  src="/tpdao-turnos.png"
+                  alt="Turnero hospitalario - vista de turnos"
+                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+
+              <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                App de escritorio para gestión de turnos médicos en clínica hospitalaria. Arquitectura ECB (Jacobson) con Patrón State para el ciclo de vida del turno, DAOs propios sin ORM, recetas en PDF con QR, notificaciones por email y reportes con gráficos. 54 tests unitarios con pytest. TP integrador UTN-FRC.
+              </p>
+
+              <div className="flex flex-wrap gap-2 mb-4">
+                {['Python 3.13', 'Tkinter', 'MySQL', 'Docker', 'pytest', 'ReportLab', 'Matplotlib'].map((tech) => (
+                  <span key={tech} className="px-2 py-1 rounded-md bg-slate-700 text-slate-300 text-xs font-medium">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <a
+                href="https://github.com/cirogiordano17/turnero-hospital-UTN"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium rounded-lg transition-all duration-300 hover:scale-105 border border-slate-600"
               >
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-lg bg-slate-700/50 flex items-center justify-center">
-                    <Code2 className="w-5 h-5 text-slate-500" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-slate-500">
-                    Próximo proyecto
-                  </h3>
+                <Github className="w-4 h-4" />
+                Ver código
+              </a>
+            </motion.div>
+
+            {/* Placeholder */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+              className="bg-slate-800/30 rounded-xl p-6 border border-slate-700/50 border-dashed"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-lg bg-slate-700/50 flex items-center justify-center">
+                  <Code2 className="w-5 h-5 text-slate-500" />
                 </div>
-                <p className="text-slate-600 text-sm">
-                  En desarrollo...
-                </p>
-              </motion.div>
-            ))}
+                <h3 className="text-lg font-semibold text-slate-500">
+                  Próximo proyecto
+                </h3>
+              </div>
+              <p className="text-slate-600 text-sm">
+                En desarrollo...
+              </p>
+            </motion.div>
           </div>
         </motion.div>
       </div>
