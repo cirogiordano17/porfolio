@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
 import { useRef } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 const skills = {
   frontend: [
@@ -31,6 +32,7 @@ const skills = {
 export function Skills() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const { t } = useLanguage();
 
   return (
     <section id="skills" className="py-20 bg-slate-900">
@@ -42,10 +44,10 @@ export function Skills() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl font-bold text-white mb-4 text-center">
-            Tecnologías
+            {t.skillsTitle}
           </h2>
           <p className="text-slate-400 text-center mb-12 max-w-2xl mx-auto">
-            Stack técnico actual y en desarrollo
+            {t.skillsSubtitle}
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -114,7 +116,7 @@ export function Skills() {
             >
               <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
                 <span className="text-2xl">💾</span>
-                Base de datos
+                {t.skillsDatabase}
               </h3>
               <div className="space-y-3">
                 {skills.database.map((skill, index) => (
@@ -142,7 +144,7 @@ export function Skills() {
             >
               <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
                 <span className="text-2xl">🛠️</span>
-                Herramientas
+                {t.skillsTools}
               </h3>
               <div className="space-y-3">
                 {skills.tools.map((skill, index) => (
@@ -170,7 +172,7 @@ export function Skills() {
             >
               <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
                 <span className="text-2xl">🚀</span>
-                Próximo paso / Aprendiendo
+                {t.skillsLearning}
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 {skills.learning.map((skill, index) => (

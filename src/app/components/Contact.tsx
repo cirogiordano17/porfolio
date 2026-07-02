@@ -2,10 +2,12 @@ import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
 import { useRef } from 'react';
 import { Mail, Linkedin, Phone } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const { t } = useLanguage();
 
   return (
     <section id="contacto" className="py-20 bg-slate-900">
@@ -17,15 +19,15 @@ export function Contact() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl font-bold text-white mb-4 text-center">
-            Contacto
+            {t.contactTitle}
           </h2>
           <p className="text-slate-400 text-center mb-12 max-w-2xl mx-auto">
-            ¿Tenés un proyecto en mente o querés conversar? Escribime
+            {t.contactSubtitle}
           </p>
 
           <div className="grid md:grid-cols-3 gap-6">
             <motion.a
-              href="mailto:tu@email.com"
+              href="mailto:cirogiordano17s@gmail.com"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.1, duration: 0.5 }}
@@ -36,8 +38,7 @@ export function Contact() {
                 <Mail className="w-7 h-7 text-blue-400" />
               </div>
               <h3 className="text-white font-semibold mb-2">Email</h3>
-              <p className="text-slate-400 text-sm break-all">cirogiordano17s@gmail.com
-              </p>
+              <p className="text-slate-400 text-sm break-all">cirogiordano17s@gmail.com</p>
             </motion.a>
 
             <motion.a
@@ -68,7 +69,7 @@ export function Contact() {
               <div className="w-14 h-14 mx-auto mb-4 rounded-lg bg-blue-600/20 flex items-center justify-center group-hover:bg-blue-600/30 transition-colors duration-300">
                 <Phone className="w-7 h-7 text-blue-400" />
               </div>
-              <h3 className="text-white font-semibold mb-2">Teléfono</h3>
+              <h3 className="text-white font-semibold mb-2">{t.contactPhone}</h3>
               <p className="text-slate-400 text-sm select-text cursor-text">+54 (9) 351 325 2802</p>
             </motion.a>
           </div>

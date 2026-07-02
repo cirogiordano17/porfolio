@@ -1,15 +1,17 @@
-import { Github, Linkedin, Mail, Heart } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-slate-950 border-t border-slate-800 py-12">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
             <p className="text-slate-400 text-sm mb-2">
-              © {new Date().getFullYear()} Ciro Giordano Proyecto personal. Código disponible en GitHub.
+              © {new Date().getFullYear()} Ciro Giordano — {t.footerCopy}
             </p>
-          
           </div>
 
           <div className="flex gap-6">

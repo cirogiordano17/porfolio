@@ -1,7 +1,10 @@
 import { motion } from 'motion/react';
 import { Github, Linkedin, Mail, ChevronDown } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export function Hero() {
+  const { t } = useLanguage();
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
@@ -25,7 +28,7 @@ export function Hero() {
             <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-2 border-blue-500">
               <img
                 src="/foto-cv.jpg"
-                alt="Foto de perfil"
+                alt={t.heroProfileAlt}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -46,10 +49,8 @@ export function Hero() {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="text-xl md:text-2xl text-blue-400 mb-6"
           >
-            Estudiante de Ingeniería en Sistemas
+            {t.heroSubtitle}
           </motion.p>
-
-        
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -61,20 +62,20 @@ export function Hero() {
               onClick={() => scrollToSection('proyectos')}
               className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/50 hover:scale-105"
             >
-              Ver proyectos
+              {t.heroViewProjects}
             </button>
             <button
               onClick={() => scrollToSection('contacto')}
               className="px-8 py-3 bg-slate-800 hover:bg-slate-700 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105 border border-slate-700"
             >
-              Contacto
+              {t.heroContact}
             </button>
             <a
               href="/cv.pdf"
               download
               className="px-8 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-green-500/50 hover:scale-105"
             >
-              Descargar CV
+              {t.heroDownloadCV}
             </a>
           </motion.div>
 
