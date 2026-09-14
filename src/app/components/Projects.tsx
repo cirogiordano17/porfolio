@@ -109,15 +109,6 @@ export function Projects() {
                 <ExternalLink className="w-4 h-4" />
                 {t.projectsViewDemo}
               </a>
-              <a
-                href="https://github.com/cirogiordano17/turnero-public"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105 border border-slate-600"
-              >
-                <Github className="w-4 h-4" />
-                {t.projectsViewCode}
-              </a>
             </div>
           </motion.div>
 
